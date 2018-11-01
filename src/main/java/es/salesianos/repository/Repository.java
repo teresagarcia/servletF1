@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
 import es.salesianos.model.Driver;
 
 public class Repository {
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/test";
+	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/F1Database";
 	ConnectionManager manager = new ConnectionH2();
 
 	public void insert(Driver userFormulario) {
