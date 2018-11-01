@@ -1,17 +1,21 @@
 package es.salesianos.model;
 
 import java.util.Calendar;
+import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 public class Driver {
 	private String name;
 	private String lastName;
 	private int team;
 	private static final int DEFAULT_TEAM = -1;
-	private Calendar birthDate;
+	private LocalDate birthDate;
 	private String nationality;
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//	private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
 	public String getName() {
 		return name;
@@ -42,19 +46,16 @@ public class Driver {
 		
 	}
 
-	public Calendar getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
 	public void setBirthDate(String birthDate) {
-		this.birthDate = Calendar.getInstance();
 		try {
 			//yyyy-MM-dd
-			this.birthDate.setTime(sdf.parse(birthDate));
-		} catch (ParseException e) {
-			this.birthDate.set(Calendar.YEAR, 1900);
-			this.birthDate.set(Calendar.MONTH, 1);
-			this.birthDate.set(Calendar.DAY_OF_MONTH, 1);
+			this.birthDate = LocalDate.parse(birthDate);
+		} catch (DateTimeParseException e) {
+			this.birthDate = LocalDate.of(1900, 1, 1);
 			//throw new RuntimeException(e);
 		}
 	}

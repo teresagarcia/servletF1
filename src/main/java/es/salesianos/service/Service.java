@@ -1,27 +1,26 @@
 package es.salesianos.service;
 
-import java.sql.Date;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.model.Driver;
 import es.salesianos.model.assembler.DriverAssembler;
+import es.salesianos.repository.Repository;
 
 public class Service {
+	private Repository repository = new Repository();
 
 	public Driver assembleDriverFromRequest(HttpServletRequest req) {
 		return DriverAssembler.assembleUserFrom(req);
 	}
 
 	public void insert(Driver driver) {
-		// TODO Auto-generated method stub
-		
+		repository.insert(driver);
 	}
 
-	public void calculateAgeAndAddIntoRequest(HttpServletRequest req, Calendar calendar) {
+	public void calculateAgeAndAddIntoRequest(HttpServletRequest req, LocalDate localDate) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
