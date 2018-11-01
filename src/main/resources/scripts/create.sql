@@ -3,6 +3,6 @@ create table IF NOT EXISTS DRIVER(
 	name varchar(25) PRIMARY KEY,
 	lastName varchar(25),
 	team int,
-	dateOfBirth date,
+	birthDate date,
 	nationality int
 );
