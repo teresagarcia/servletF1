@@ -24,7 +24,7 @@ public class NewDriverServlet extends HttpServlet {
 	}
 
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/finishl.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/finish.jsp");
 		dispatcher.forward(req, resp);
 	}
 

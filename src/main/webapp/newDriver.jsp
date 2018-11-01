@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Inscripción de un nuevo piloto</h1>
-	<form action="/welcome.jsp" method="post">
+	<form action="newDriver" method="post">
 		<span>Nombre:</span> <input type="text" name="name"> <br /> 
 		<span>Apellido:</span>
 		<input type="text" name="lastName"> <br /> 

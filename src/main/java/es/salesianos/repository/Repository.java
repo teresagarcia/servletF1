@@ -45,16 +45,5 @@ public class Repository {
 		}
 	}
 	
-	private void close(ResultSet resultSet) {
-		if (null != resultSet) {
-
-			try {
-				resultSet.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new RuntimeException(e);
-			}
-		}
-	}
 
 }
