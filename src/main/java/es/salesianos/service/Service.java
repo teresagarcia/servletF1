@@ -1,6 +1,7 @@
 package es.salesianos.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,6 +22,10 @@ public class Service {
 
 	public void calculateAgeAndAddIntoRequest(HttpServletRequest req, LocalDate localDate) {
 		// TODO Auto-generated method stub
+	}
+
+	public List<Driver> listAllDrivers() {
+		return repository.searchAll();
 	}
 
 }

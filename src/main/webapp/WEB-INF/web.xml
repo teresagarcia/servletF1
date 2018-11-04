@@ -7,16 +7,20 @@
 	<display-name>Formula 1 Servlet</display-name>
 	<description></description>
 
-	<!-- <servlet> <servlet-name>DriversServlet</servlet-name> <servlet-class>es.salesianos.servlet.DriversServlet</servlet-class> 
-		</servlet> -->
+	<servlet>
+		<servlet-name>DriversServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DriversServlet</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>NewDriverServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.NewDriverServlet</servlet-class>
 	</servlet>
 
-	<!-- <servlet-mapping> <servlet-name>DriversSevlet</servlet-name> <url-pattern>driversList</url-pattern> 
-		</servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>DriversServlet</servlet-name>
+		<url-pattern>driversList</url-pattern>
+	</servlet-mapping>
 
 
 	<servlet-mapping>

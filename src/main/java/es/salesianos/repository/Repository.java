@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import es.salesianos.connection.ConnectionH2;
 import es.salesianos.connection.ConnectionManager;
@@ -44,6 +46,46 @@ public class Repository {
 			}
 		}
 	}
-	
 
+	public List<Driver> searchAll() {
+		List<Driver> driversList = new ArrayList<Driver>();
+		Connection conn = manager.open(jdbcUrl);
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM DRIVER");
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				Driver driverInDatabase = new Driver();
+				driverInDatabase.setName(resultSet.getString(1));
+				driverInDatabase.setLastName(resultSet.getString(2));
+				driverInDatabase.setTeam(resultSet.getString(3));
+				driverInDatabase.setBirthDate(resultSet.getString(4));
+				driverInDatabase.setNationality(resultSet.getString(5));
+				driversList.add(driverInDatabase);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(resultSet);
+			close(prepareStatement);
+			manager.close(conn);
+		}
+
+		return driversList;
+	}
+
+	private void close(ResultSet resultSet) {
+		if (null != resultSet) {
+
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+		}
+	}
 }
