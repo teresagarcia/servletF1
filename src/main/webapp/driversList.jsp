@@ -12,9 +12,9 @@
 <title>Listado de pilotos</title>
 </head>
 <body>
-	<form action="cargarListado" method="post">
-		<input type="submit" value="ver listado">
-	</form>
+<!-- 	<form action="driversList" method="post">
+		<input type="submit" value="Ver listado">
+	</form> -->
 
 	<%
 		List<Driver> drivers = (List<Driver>) request.getAttribute("listAllDrivers");
@@ -46,7 +46,7 @@
 				<tr>
 					<td><c:out value="${driver.name}" /></td>
 					<td><c:out value="${driver.lastName}" /></td>
-					<td><c:out value="${driver.bithDate}" /></td>
+					<td><c:out value="${driver.birthDate}" /></td>
 					<td><c:out value="${driver.team}" /></td>
 					<td><c:out value="${driver.nationality}" /></td>
 					<td><a href="/edit?id=${driver.name}">Editar</a></td>
