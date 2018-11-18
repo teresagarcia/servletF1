@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import es.salesianos.model.Driver;
+import es.salesianos.model.Team;
 import es.salesianos.service.DriverService;
+import es.salesianos.service.TeamService;
 
-public class NewDriverServlet extends HttpServlet {
-
-	private DriverService service = new DriverService();
+public class NewTeamServlet extends HttpServlet {
+	private TeamService service = new TeamService();
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Driver driver = service.assembleDriverFromRequest(req);
-		service.insert(driver);
-		service.calculateAgeAndAddIntoRequest(req, driver.getBirthDate());
+		Team team = service.assembleTeamFromRequest(req);
+		service.insert(team);
 		redirect(req, resp);
 	}
 
@@ -28,11 +28,11 @@ public class NewDriverServlet extends HttpServlet {
 		dispatcher.forward(req, resp);
 	}
 
-	public DriverService getService() {
+	public TeamService getService() {
 		return service;
 	}
 
-	public void setService(DriverService service) {
+	public void setService(TeamService service) {
 		this.service = service;
 	}
 }

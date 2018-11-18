@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import es.salesianos.model.Driver;
 import es.salesianos.model.assembler.DriverAssembler;
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.DriverRepository;
 
-public class Service {
-	private Repository repository = new Repository();
+public class DriverService {
+	private DriverRepository repository = new DriverRepository();
 
 	public Driver assembleDriverFromRequest(HttpServletRequest req) {
-		return DriverAssembler.assembleUserFrom(req);
+		return DriverAssembler.assembleDriverFrom(req);
 	}
 
 	public void insert(Driver driver) {

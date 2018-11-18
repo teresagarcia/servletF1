@@ -12,9 +12,9 @@
 <title>Listado de pilotos</title>
 </head>
 <body>
-<!-- 	<form action="driversList" method="post">
+	<form action="driversList" method="post">
 		<input type="submit" value="Ver listado">
-	</form> -->
+	</form>
 
 	<%
 		List<Driver> drivers = (List<Driver>) request.getAttribute("listAllDrivers");

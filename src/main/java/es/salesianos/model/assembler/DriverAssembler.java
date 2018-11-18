@@ -6,7 +6,7 @@ import es.salesianos.model.Driver;
 
 public class DriverAssembler {
 
-	public static Driver assembleUserFrom(HttpServletRequest req) {
+	public static Driver assembleDriverFrom(HttpServletRequest req) {
 		Driver driver = new Driver();
 		String name = req.getParameter("name");
 		String lastName = req.getParameter("lastName");
