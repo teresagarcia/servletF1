@@ -1,3 +1,5 @@
+<%@page import="es.salesianos.service.TeamService"%>
+<%@page import="es.salesianos.repository.TeamRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -17,7 +19,8 @@
 	</form>
 
 	<%
-		List<Team> teams = (List<Team>) request.getAttribute("listAllTeams");
+		TeamService teamService = new TeamService();
+		List<Team> teams = (List<Team>) teamService.listAllTeams();
 		out.println(teams);
 		pageContext.setAttribute("teams", teams);
 	%>
@@ -45,7 +48,7 @@
 					<td><c:out value="${team.name}" /></td>
 					<td><c:out value="${team.nationality}" /></td>
 					<td><c:out value="Piloto 1, piloto 2, paquete" /></td>
-					<td><a href="/edit?id=${team.idTeam}">Editar</a></td>
+					<td><a href="/editTeam?id=${team.idTeam}">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
