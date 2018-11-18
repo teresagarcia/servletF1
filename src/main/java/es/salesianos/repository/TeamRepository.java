@@ -70,6 +70,7 @@ public class TeamRepository {
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				Team teamInDatabase = new Team();
+				teamInDatabase.setIdTeam(resultSet.getInt(1));
 				teamInDatabase.setName(resultSet.getString(2));
 				teamInDatabase.setNationality(resultSet.getInt(3));
 				teamsList.add(teamInDatabase);

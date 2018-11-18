@@ -11,6 +11,7 @@ public class DriverAssembler {
 		String name = req.getParameter("name");
 		String lastName = req.getParameter("lastName");
 		String team = req.getParameter("team");
+		System.out.println(team);
 		String birthDate = req.getParameter("birthDate");
 		String nationality = req.getParameter("nationality");
 		driver.setName(name);
@@ -18,6 +19,7 @@ public class DriverAssembler {
 		driver.setTeam(team);
 		driver.setBirthDate(birthDate);
 		driver.setNationality(nationality);
+		System.out.println(driver.getTeam());
 		return driver;
 	}
 

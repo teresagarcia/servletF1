@@ -82,7 +82,7 @@ public class Driver {
 	public void setNationality(String nationality) {
 		try {
 			if (nationality != null)
-				this.team = Integer.valueOf(nationality);
+				this.nationality = Integer.valueOf(nationality);
 		} catch (Exception e) {
 			this.team = DEFAULT_NATION;
 		}

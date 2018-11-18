@@ -21,10 +21,12 @@ public class DriverRepository {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = conn
-					.prepareStatement("INSERT INTO DRIVER (name,lastName,birthDate)" + "VALUES (?, ?, ?)");
+					.prepareStatement("INSERT INTO DRIVER (name,lastName,team, birthDate, nationality)" + "VALUES (?, ?, ?, ?, ?)");
 			preparedStatement.setString(1, formDriver.getName());
 			preparedStatement.setString(2, formDriver.getLastName());
-			preparedStatement.setDate(3, Date.valueOf(formDriver.getBirthDate()));
+			preparedStatement.setInt(3, formDriver.getTeam());
+			preparedStatement.setDate(4, Date.valueOf(formDriver.getBirthDate()));
+			preparedStatement.setInt(5, formDriver.getNationality());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
