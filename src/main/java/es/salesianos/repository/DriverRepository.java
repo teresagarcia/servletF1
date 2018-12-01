@@ -93,7 +93,7 @@ public class DriverRepository {
 	}
 
 	public Driver searchByDriverId(int id) {
-		Driver ownerInDatabase = null;
+		Driver driverInDatabase = null;
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		Connection conn = manager.open(jdbcUrl);
@@ -102,12 +102,13 @@ public class DriverRepository {
 			prepareStatement.setInt(1, id);
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
-				ownerInDatabase = new Driver();
-				ownerInDatabase.setId(resultSet.getInt(1));
-				ownerInDatabase.setName(resultSet.getString(2));
-				ownerInDatabase.setTeam(resultSet.getString(3));
-				ownerInDatabase.setBirthDate(resultSet.getString(4));
-				ownerInDatabase.setNationality(resultSet.getString(5));
+				driverInDatabase = new Driver();
+				driverInDatabase.setId(resultSet.getInt(1));
+				driverInDatabase.setName(resultSet.getString(2));
+				driverInDatabase.setLastName(resultSet.getString(3));
+				driverInDatabase.setTeam(resultSet.getString(4));
+				driverInDatabase.setBirthDate(resultSet.getString(5));
+				driverInDatabase.setNationality(resultSet.getString(6));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -117,6 +118,29 @@ public class DriverRepository {
 			close(prepareStatement);
 		}
 		manager.close(conn);
-		return ownerInDatabase;
+		return driverInDatabase;
+	}
+
+	public void update(Driver formDriver) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("UPDATE DRIVER SET name = ?, lastName = ?, team = ?, birthDate = ?, nationality = ? WHERE idDriver = ?");
+			preparedStatement.setString(1, formDriver.getName());
+			preparedStatement.setString(2, formDriver.getLastName());
+			preparedStatement.setInt(3, formDriver.getTeam());
+			preparedStatement.setDate(4, Date.valueOf(formDriver.getBirthDate()));
+			preparedStatement.setInt(5, formDriver.getNationality());
+			System.out.println("ID del piloto: " + formDriver.getId());
+			preparedStatement.setInt(6, formDriver.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(preparedStatement);
+			manager.close(conn);
+		}
 	}
 }

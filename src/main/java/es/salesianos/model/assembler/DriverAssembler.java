@@ -8,6 +8,10 @@ public class DriverAssembler {
 
 	public static Driver assembleDriverFrom(HttpServletRequest req) {
 		Driver driver = new Driver();
+		String id = req.getParameter("id");
+		if(null != id) {
+			driver.setId(Integer.parseInt(id));
+		}
 		String name = req.getParameter("name");
 		String lastName = req.getParameter("lastName");
 		String team = req.getParameter("team");

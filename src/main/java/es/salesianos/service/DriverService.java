@@ -32,4 +32,8 @@ public class DriverService {
 		return repository.searchByDriverId(id);
 	}
 
+	public void update(Driver driver) {
+		repository.update(driver);
+	}
+
 }

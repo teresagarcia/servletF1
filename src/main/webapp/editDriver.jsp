@@ -16,18 +16,19 @@
 		pageContext.setAttribute("nations", nations);
 		TeamService teamService = new TeamService();
 		List<Team> teams = (List<Team>) teamService.listAllTeams();
-		pageContext.setAttribute("nations", nations);
+		pageContext.setAttribute("teams", teams);
 		request.getAttribute("driver");
 	%>
 	<h1>Actualizar información del piloto</h1>
-	<form action="/updateDriver" method="post">
+	<form action="/goToUpdateDriver" method="post">
+		<input type="hidden" name="id" value="<c:out value="${driver.id}"/>"/>
 		<span>Nombre:</span> <input type="text" name="name" value="<c:out value="${driver.name}"/>"> <br /> 
 		<span>Apellido:</span>
 		<input type="text" name="lastName" value="<c:out value="${driver.lastName}"/>"> <br /> 
 		<span>Equipo:</span>
 			<select name="team">
 			<c:forEach var="team1" items="${teams}">
-				<option value="${team1.idTeam}" <c:out ${(team1.idTeam == driver.driverId) ? "selected" : ""}/>>${team1.name}</option>
+				<option value="${team1.idTeam}" <c:if test="${team1.idTeam} == ${driver.idTeam}"><% out.println("selected"); %></c:if> >${team1.name}</option>
 			</c:forEach>
 		</select> <br /> 
 		<span>Fecha de nacimiento:</span><input type="date"
@@ -36,7 +37,7 @@
 		</span>
 			<select name="nationality">
 			<c:forEach var="nation" items="${nations}">
-				<option value="${nation.idNation}">${nation.name}</option>
+				<option value="${nation.idNation}" <c:if test="${nation.idNation} == ${driver.nationality}"><% out.println("selected"); %></c:if>>${nation.name}</option>
 			</c:forEach>
 		</select> <br /> 
 		<input type="submit">
