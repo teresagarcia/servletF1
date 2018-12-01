@@ -28,7 +28,7 @@
 		<span>Equipo:</span>
 			<select name="team">
 			<c:forEach var="team1" items="${teams}">
-				<option value="${team1.idTeam}" <c:if test="${team1.idTeam} == ${driver.idTeam}"><% out.println("selected"); %></c:if> >${team1.name}</option>
+				<option value="${team1.idTeam}" <c:if test="${team1.idTeam} == ${driver.team}"><% out.println("selected"); %></c:if> >${team1.name}</option>
 			</c:forEach>
 		</select> <br /> 
 		<span>Fecha de nacimiento:</span><input type="date"

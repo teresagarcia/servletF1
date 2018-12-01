@@ -31,6 +31,16 @@
 		<servlet-name>UpdateDriverServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.UpdateDriverServlet</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>ConfirmDeleteDriverServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.ConfirmDeleteDriverServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>DeleteDriverServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.DeleteDriverServlet</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>NewTeamServlet</servlet-name>
@@ -60,6 +70,16 @@
 	<servlet-mapping>
 		<servlet-name>UpdateDriverServlet</servlet-name>
 		<url-pattern>/goToUpdateDriver</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ConfirmDeleteDriverServlet</servlet-name>
+		<url-pattern>/confirmDeleteDriver</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>DeleteDriverServlet</servlet-name>
+		<url-pattern>/deleteDriver</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

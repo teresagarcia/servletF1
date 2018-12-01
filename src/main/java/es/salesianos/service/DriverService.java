@@ -36,4 +36,9 @@ public class DriverService {
 		repository.update(driver);
 	}
 
+	public void deleteDriver(int id) {
+		repository.deleteDriver(id);
+		
+	}
+
 }

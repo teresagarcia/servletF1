@@ -38,7 +38,8 @@
 				<td>Fecha de nacimiento</td>
 				<td>Equipo</td>
 				<td>Nacionalidad</td>
-				<td>Opciones</td>
+				<td>Editar</td>
+				<td>Borrar</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -50,6 +51,7 @@
 					<td><c:out value="${driver.team}" /></td>
 					<td><c:out value="${driver.nationality}" /></td>
 					<td><a href="/goToEditDriver?id=${driver.id}">Editar</a></td>
+					<td><a href="/confirmDeleteDriver?id=${driver.id}">Borrar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

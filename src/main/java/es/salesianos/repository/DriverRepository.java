@@ -143,4 +143,23 @@ public class DriverRepository {
 			manager.close(conn);
 		}
 	}
+
+	public void deleteDriver(int id) {
+		Connection conn = manager.open(jdbcUrl);
+		PreparedStatement preparedStatement = null;
+		try {
+			preparedStatement = conn
+					.prepareStatement("DELETE FROM DRIVER WHERE idDriver = ?");
+			preparedStatement.setInt(1, id);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(preparedStatement);
+			manager.close(conn);
+		}
+		
+	}
 }
