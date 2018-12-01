@@ -154,3 +154,42 @@ UPDATE DRIVER SET name = ?, lastName = ?, team = ?, birthDate = ?, nationality =
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
+2018-12-01 22:03:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN WHERE[*] T.IDTEAM = D.TEAM "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN WHERE[*] T.IDTEAM = D.TEAM "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN WHERE t.idTeam = d.team [42001-197]
+2018-12-01 22:10:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D JOIN WHERE[*] T.IDTEAM = D.TEAM; "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D JOIN WHERE[*] T.IDTEAM = D.TEAM; "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d JOIN WHERE t.idTeam = d.team; [42001-197]
+2018-12-01 22:22:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN WHERE[*] T.IDTEAM = D.TEAM; "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN WHERE[*] T.IDTEAM = D.TEAM; "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN WHERE t.idTeam = d.team; [42001-197]
+2018-12-01 22:25:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN ON[*](T.IDTEAM = D.TEAM) "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN ON[*](T.IDTEAM = D.TEAM) "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN ON(t.idTeam = d.team) [42001-197]
+2018-12-01 22:31:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL """SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN TEAM ON(t.idTeam = d.team)""[*]"; se esperaba "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"
+Syntax error in SQL statement """SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN TEAM ON(t.idTeam = d.team)""[*]"; expected "SELECT, SET, SAVEPOINT, SCRIPT, SHUTDOWN, SHOW, {"; SQL statement:
+"SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN TEAM ON(t.idTeam = d.team)" [42001-197]
+2018-12-01 22:32:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN ON[*](T.IDTEAM = D.TEAM) "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN ON[*](T.IDTEAM = D.TEAM) "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN ON(t.idTeam = d.team) [42001-197]
+2018-12-01 22:32:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN ON[*](T.IDTEAM = D.TEAM) "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D INNER JOIN ON[*](T.IDTEAM = D.TEAM) "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN ON(t.idTeam = d.team) [42001-197]
+2018-12-01 22:32:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TEAM_DRIVER" no encontrada
+Table "TEAM_DRIVER" not found; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d INNER JOIN team_driver ON(t.idTeam = d.team) [42102-197]
+2018-12-01 22:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D JOIN WHERE[*] T.IDTEAM = D.TEAM "; se esperaba "identifier"
+Syntax error in SQL statement "SELECT T.IDTEAM, T.NAME, T.NATIONALITY, D.IDDRIVER, D.NAME, D.LASTNAME FROM TEAM T, DRIVER D JOIN WHERE[*] T.IDTEAM = D.TEAM "; expected "identifier"; SQL statement:
+SELECT t.idTeam, t.name, t.nationality, d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d JOIN where t.idTeam = d.team [42001-197]
+2018-12-01 22:44:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: No hay datos disponibles.
+No data is available [2000-197]

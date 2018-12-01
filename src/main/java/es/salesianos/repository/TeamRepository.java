@@ -1,7 +1,6 @@
 package es.salesianos.repository;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,8 +20,7 @@ public class TeamRepository {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
 		try {
-			preparedStatement = conn
-					.prepareStatement("INSERT INTO TEAM (name,nationality)" + "VALUES (?, ?)");
+			preparedStatement = conn.prepareStatement("INSERT INTO TEAM (name,nationality)" + "VALUES (?, ?)");
 			preparedStatement.setString(1, formTeam.getName());
 			preparedStatement.setInt(2, formTeam.getNationality());
 			preparedStatement.executeUpdate();
@@ -66,14 +64,30 @@ public class TeamRepository {
 		ResultSet resultSet = null;
 		PreparedStatement prepareStatement = null;
 		try {
-			prepareStatement = conn.prepareStatement("SELECT idTeam, name, nationality FROM TEAM");
+			prepareStatement = conn.prepareStatement("SELECT t.idTeam, t.name, t.nationality, "
+					+ "d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d where t.idTeam = d.team");
 			resultSet = prepareStatement.executeQuery();
+			Team teamInDatabase = null;
 			while (resultSet.next()) {
-				Team teamInDatabase = new Team();
-				teamInDatabase.setIdTeam(resultSet.getInt(1));
-				teamInDatabase.setName(resultSet.getString(2));
-				teamInDatabase.setNationality(resultSet.getInt(3));
-				teamsList.add(teamInDatabase);
+				if (teamInDatabase!= null && (teamInDatabase.getIdTeam() == resultSet.getInt(1))) {
+					Driver driver = new Driver();
+					driver.setId(resultSet.getInt(4));
+					driver.setName(resultSet.getString(5));
+					driver.setLastName(resultSet.getString(6));
+					System.out.println(teamInDatabase.getName());
+					teamInDatabase.getDrivers().add(driver);
+				} else {
+					teamInDatabase = new Team();
+					teamInDatabase.setIdTeam(resultSet.getInt(1));
+					teamInDatabase.setName(resultSet.getString(2));
+					teamInDatabase.setNationality(resultSet.getInt(3));
+					Driver driver = new Driver();
+					driver.setId(resultSet.getInt(4));
+					driver.setName(resultSet.getString(5));
+					driver.setLastName(resultSet.getString(6));
+					teamInDatabase.getDrivers().add(driver);
+					teamsList.add(teamInDatabase);
+				}
 			}
 
 		} catch (SQLException e) {

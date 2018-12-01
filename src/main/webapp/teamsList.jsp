@@ -47,7 +47,11 @@
 				<tr>
 					<td><c:out value="${team.name}" /></td>
 					<td><c:out value="${team.nationality}" /></td>
-					<td><c:out value="Piloto 1, piloto 2, paquete" /></td>
+					<td>
+	    			<c:forEach var="driver" items="${team.drivers}">
+	    				<c:out value="${driver.name} ${driver.lastName}"/><br/>
+	    			</c:forEach>
+	    		</td>
 					<td><a href="/editTeam?id=${team.idTeam}">Editar</a></td>
 				</tr>
 			</c:forEach>
