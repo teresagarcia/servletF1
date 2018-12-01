@@ -16,9 +16,15 @@
 		<servlet-name>TeamsServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.TeamsServlet</servlet-class>
 	</servlet>
+	
 	<servlet>
 		<servlet-name>NewDriverServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.NewDriverServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>EditDriverServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.EditDriverServlet</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -28,22 +34,27 @@
 
 	<servlet-mapping>
 		<servlet-name>DriversServlet</servlet-name>
-		<url-pattern>driversList</url-pattern>
+		<url-pattern>/driversList</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>TeamsServlet</servlet-name>
-		<url-pattern>teamsList</url-pattern>
+		<url-pattern>/teamsList</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>NewDriverServlet</servlet-name>
-		<url-pattern>newDriver</url-pattern>
+		<url-pattern>/newDriver</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
+		<servlet-name>EditDriverServlet</servlet-name>
+		<url-pattern>/goToEditDriver</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
 		<servlet-name>NewTeamServlet</servlet-name>
-		<url-pattern>newTeam</url-pattern>
+		<url-pattern>/newTeam</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

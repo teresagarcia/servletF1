@@ -49,7 +49,7 @@
 					<td><c:out value="${driver.birthDate}" /></td>
 					<td><c:out value="${driver.team}" /></td>
 					<td><c:out value="${driver.nationality}" /></td>
-					<td><a href="/edit?id=${driver.name}">Editar</a></td>
+					<td><a href="/goToEditDriver?id=${driver.id}">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

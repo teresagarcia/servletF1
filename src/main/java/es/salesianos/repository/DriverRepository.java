@@ -59,6 +59,7 @@ public class DriverRepository {
 			resultSet = prepareStatement.executeQuery();
 			while (resultSet.next()) {
 				Driver driverInDatabase = new Driver();
+				driverInDatabase.setId(resultSet.getInt(1));
 				driverInDatabase.setName(resultSet.getString(2));
 				driverInDatabase.setLastName(resultSet.getString(3));
 				driverInDatabase.setTeam(resultSet.getInt(4));
@@ -89,5 +90,33 @@ public class DriverRepository {
 				throw new RuntimeException(e);
 			}
 		}
+	}
+
+	public Driver searchByDriverId(int id) {
+		Driver ownerInDatabase = null;
+		ResultSet resultSet = null;
+		PreparedStatement prepareStatement = null;
+		Connection conn = manager.open(jdbcUrl);
+		try {
+			prepareStatement = conn.prepareStatement("SELECT * FROM DRIVER WHERE idDriver = ?");
+			prepareStatement.setInt(1, id);
+			resultSet = prepareStatement.executeQuery();
+			while (resultSet.next()) {
+				ownerInDatabase = new Driver();
+				ownerInDatabase.setId(resultSet.getInt(1));
+				ownerInDatabase.setName(resultSet.getString(2));
+				ownerInDatabase.setTeam(resultSet.getString(3));
+				ownerInDatabase.setBirthDate(resultSet.getString(4));
+				ownerInDatabase.setNationality(resultSet.getString(5));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			close(resultSet);
+			close(prepareStatement);
+		}
+		manager.close(conn);
+		return ownerInDatabase;
 	}
 }

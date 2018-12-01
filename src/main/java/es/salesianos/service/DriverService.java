@@ -28,4 +28,8 @@ public class DriverService {
 		return repository.searchAll();
 	}
 
+	public Driver search(int id) {
+		return repository.searchByDriverId(id);
+	}
+
 }
