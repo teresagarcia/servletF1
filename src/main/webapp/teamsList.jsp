@@ -40,6 +40,7 @@
 				<td>Nacionalidad</td>
 				<td>Pilotos</td>
 				<td>Opciones</td>
+				<td>Añadir piloto</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -53,6 +54,7 @@
 	    			</c:forEach>
 	    		</td>
 					<td><a href="/editTeam?id=${team.idTeam}">Editar</a></td>
+					<td><a href="/recoveryAddDriver?id=${team.idTeam}">Añadir</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

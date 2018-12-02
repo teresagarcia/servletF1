@@ -46,6 +46,11 @@
 		<servlet-name>NewTeamServlet</servlet-name>
 		<servlet-class>es.salesianos.servlet.NewTeamServlet</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>RecoveryAddDriverServlet</servlet-name>
+		<servlet-class>es.salesianos.servlet.RecoveryAddDriverServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>DriversServlet</servlet-name>
@@ -85,6 +90,11 @@
 	<servlet-mapping>
 		<servlet-name>NewTeamServlet</servlet-name>
 		<url-pattern>/newTeam</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RecoveryAddDriverServlet</servlet-name>
+		<url-pattern>/recoveryAddDriver</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

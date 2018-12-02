@@ -65,7 +65,7 @@ public class TeamRepository {
 		PreparedStatement prepareStatement = null;
 		try {
 			prepareStatement = conn.prepareStatement("SELECT t.idTeam, t.name, t.nationality, "
-					+ "d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d where t.idTeam = d.team");
+					+ "d.idDriver, d.name, d.lastName FROM TEAM t, DRIVER d where t.idTeam = d.team order by t.idTeam");
 			resultSet = prepareStatement.executeQuery();
 			Team teamInDatabase = null;
 			while (resultSet.next()) {
