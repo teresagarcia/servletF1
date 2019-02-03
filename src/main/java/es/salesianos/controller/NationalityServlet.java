@@ -1,4 +1,4 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.salesianos.model.Team;
-import es.salesianos.service.TeamService;
+import es.salesianos.model.Nationality;
+import es.salesianos.service.NationalityService;
 
-public class TeamsServlet extends HttpServlet {
-	private TeamService service = new TeamService();
+public class NationalityServlet extends HttpServlet {
+	private NationalityService service = new NationalityService();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Team> listAllTeams = service.listAllTeams();
-		req.setAttribute("listAllTeams", listAllTeams);
+		List<Nationality> listAllNations = service.listAllNations();
+		req.setAttribute("listAllNations", listAllNations);
 		redirect(req, resp);
 	}
 

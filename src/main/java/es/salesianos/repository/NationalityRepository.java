@@ -7,13 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.salesianos.connection.ConnectionH2;
-import es.salesianos.connection.ConnectionManager;
+import es.salesianos.connection.AbstractConnection;
 import es.salesianos.model.Nationality;
 
-public class NationalityRepository {
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/F1Database";
-	ConnectionManager manager = new ConnectionH2();
+@org.springframework.stereotype.Repository
+public class NationalityRepository extends Repository {
+	private static final String jdbcUrl = getJdbcUrl();
+	AbstractConnection manager = getManager();
 
 	private void close(PreparedStatement prepareStatement) {
 		if (null != prepareStatement) {

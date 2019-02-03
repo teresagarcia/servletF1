@@ -7,15 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.salesianos.connection.ConnectionH2;
-import es.salesianos.connection.ConnectionManager;
+import es.salesianos.connection.AbstractConnection;
 import es.salesianos.model.Driver;
 import es.salesianos.model.Team;
 
-public class TeamRepository {
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/F1Database";
-	ConnectionManager manager = new ConnectionH2();
-
+@org.springframework.stereotype.Repository
+public class TeamRepository extends Repository {
+	private static final String jdbcUrl = getJdbcUrl();
+	AbstractConnection manager = getManager();
 	public void insert(Team formTeam) {
 		Connection conn = manager.open(jdbcUrl);
 		PreparedStatement preparedStatement = null;
@@ -74,7 +73,6 @@ public class TeamRepository {
 					driver.setId(resultSet.getInt(4));
 					driver.setName(resultSet.getString(5));
 					driver.setLastName(resultSet.getString(6));
-					System.out.println(teamInDatabase.getName());
 					teamInDatabase.getDrivers().add(driver);
 				} else {
 					teamInDatabase = new Team();

@@ -4,101 +4,23 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_1.xsd"
 	version="3.1">
 
-	<display-name>Formula 1 Servlet</display-name>
+	<display-name>Formula 1 WebApp</display-name>
 	<description></description>
 
-	<servlet>
-		<servlet-name>DriversServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.DriversServlet</servlet-class>
-	</servlet>
 
-	<servlet>
-		<servlet-name>TeamsServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.TeamsServlet</servlet-class>
-	</servlet>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring-context.xml</param-value>
+	</context-param>
 
-	<servlet>
-		<servlet-name>NewDriverServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.NewDriverServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>EditDriverServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.EditDriverServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>UpdateDriverServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.UpdateDriverServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>ConfirmDeleteDriverServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.ConfirmDeleteDriverServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>DeleteDriverServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.DeleteDriverServlet</servlet-class>
-	</servlet>
-
-	<servlet>
-		<servlet-name>NewTeamServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.NewTeamServlet</servlet-class>
-	</servlet>
-	
-	<servlet>
-		<servlet-name>RecoveryAddDriverServlet</servlet-name>
-		<servlet-class>es.salesianos.servlet.RecoveryAddDriverServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>DriversServlet</servlet-name>
-		<url-pattern>/driversList</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>TeamsServlet</servlet-name>
-		<url-pattern>/teamsList</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>NewDriverServlet</servlet-name>
-		<url-pattern>/newDriver</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>EditDriverServlet</servlet-name>
-		<url-pattern>/goToEditDriver</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>UpdateDriverServlet</servlet-name>
-		<url-pattern>/goToUpdateDriver</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>ConfirmDeleteDriverServlet</servlet-name>
-		<url-pattern>/confirmDeleteDriver</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>DeleteDriverServlet</servlet-name>
-		<url-pattern>/deleteDriver</url-pattern>
-	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>NewTeamServlet</servlet-name>
-		<url-pattern>/newTeam</url-pattern>
-	</servlet-mapping>
-	
-	<servlet-mapping>
-		<servlet-name>RecoveryAddDriverServlet</servlet-name>
-		<url-pattern>/recoveryAddDriver</url-pattern>
-	</servlet-mapping>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
 
 	<welcome-file-list>
-		<welcome-file>welcome.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 </web-app>     

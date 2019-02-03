@@ -8,13 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.salesianos.connection.ConnectionH2;
-import es.salesianos.connection.ConnectionManager;
+import org.springframework.stereotype.Repository;
+
+import es.salesianos.connection.AbstractConnection;
 import es.salesianos.model.Driver;
 
-public class DriverRepository {
-	private static final String jdbcUrl = "jdbc:h2:file:./src/main/resources/F1Database";
-	ConnectionManager manager = new ConnectionH2();
+@Repository
+public class DriverRepository extends es.salesianos.repository.Repository {
+	private static final String jdbcUrl = getJdbcUrl();
+	AbstractConnection manager = getManager();
 
 	public void insert(Driver formDriver) {
 		Connection conn = manager.open(jdbcUrl);

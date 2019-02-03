@@ -12,24 +12,6 @@
 <title>Listado de pilotos</title>
 </head>
 <body>
-	<form action="driversList" method="post">
-		<input type="submit" value="Ver listado">
-	</form>
-
-	<%
-		List<Driver> drivers = (List<Driver>) request.getAttribute("listAllDrivers");
-		out.println(drivers);
-		pageContext.setAttribute("drivers", drivers);
-	%>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-
 	<table border="1">
 		<thead>
 			<tr>
@@ -43,7 +25,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="driver" items="${drivers}">
+			<c:forEach var="driver" items="${listAllDrivers}">
 				<tr>
 					<td><c:out value="${driver.name}" /></td>
 					<td><c:out value="${driver.lastName}" /></td>

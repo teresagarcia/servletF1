@@ -5,16 +5,18 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
 import es.salesianos.model.Driver;
-import es.salesianos.model.assembler.DriverAssembler;
 import es.salesianos.repository.DriverRepository;
 
+@Service
+@Profile("PRO")
 public class DriverService {
-	private DriverRepository repository = new DriverRepository();
-
-	public Driver assembleDriverFromRequest(HttpServletRequest req) {
-		return DriverAssembler.assembleDriverFrom(req);
-	}
+	@Autowired
+	private DriverRepository repository;
 
 	public void insert(Driver driver) {
 		repository.insert(driver);

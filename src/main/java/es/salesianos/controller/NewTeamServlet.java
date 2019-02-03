@@ -1,4 +1,4 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.io.IOException;
 
@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.salesianos.model.Driver;
 import es.salesianos.model.Team;
-import es.salesianos.service.DriverService;
 import es.salesianos.service.TeamService;
 
 public class NewTeamServlet extends HttpServlet {
@@ -18,8 +16,7 @@ public class NewTeamServlet extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Team team = service.assembleTeamFromRequest(req);
-		service.insert(team);
+		service.insert(new Team());
 		redirect(req, resp);
 	}
 

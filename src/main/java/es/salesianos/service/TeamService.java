@@ -1,20 +1,19 @@
 package es.salesianos.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import es.salesianos.model.Team;
-import es.salesianos.model.assembler.TeamAssembler;
 import es.salesianos.repository.TeamRepository;
 
+@Service("teamService")
+@Profile("PRO")
 public class TeamService {
-	private TeamRepository repository = new TeamRepository();
-
-	public Team assembleTeamFromRequest(HttpServletRequest req) {
-		return TeamAssembler.assembleTeamFrom(req);
-	}
+	@Autowired
+	private TeamRepository repository;
 
 	public void insert(Team team) {
 		repository.insert(team);

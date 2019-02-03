@@ -12,20 +12,14 @@
 <title>Nuevo piloto</title>
 </head>
 <body>
-	<%
-		NationalityService nationService = new NationalityService();
-		List<Nationality> nations = (List<Nationality>) nationService.listAllNations();
-		TeamService teamService = new TeamService();
-		List<Team> teams = (List<Team>) teamService.listAllTeams();
-		pageContext.setAttribute("nations", nations);
-		pageContext.setAttribute("teams", teams);
-	%>
 	<h1>Inscripción de un nuevo piloto</h1>
-	<form action="newDriver" method="post">
-		<span>Nombre:</span> <input type="text" name="name"> <br /> <span>Apellido:</span>
-		<input type="text" name="lastName"> <br /> <span>Equipo:</span>
-		<select name="team"><c:forEach var="team1" items="${teams}">
-				<option value="${team1.idTeam}">${team1.name}</option>
+	<form action="/addDriver" method="post">
+		<span>Nombre:</span> <input type="text" name="name"> <br /> 
+		<span>Apellido:</span>
+		<input type="text" name="lastName"> <br /> 
+		<span>Equipo:</span>
+		<select name="team"><c:forEach var="team" items="${teams}">
+				<option value="${team.idTeam}">${team.name}</option>
 			</c:forEach>
 		</select> <br /> 
 		<span>Fecha de nacimiento:</span><input type="date"

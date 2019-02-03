@@ -1,0 +1,4 @@
+2019-02-03 15:39:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "DRIVER" no encontrada
+Table "DRIVER" not found; SQL statement:
+SELECT idDriver, name, lastName, team, birthDate, nationality FROM DRIVER [42102-197]

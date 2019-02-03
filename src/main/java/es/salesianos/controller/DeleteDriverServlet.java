@@ -1,4 +1,4 @@
-package es.salesianos.servlet;
+package es.salesianos.controller;
 
 import java.io.IOException;
 
@@ -8,17 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import es.salesianos.model.Driver;
-import es.salesianos.model.assembler.DriverAssembler;
 import es.salesianos.service.DriverService;
 
-public class UpdateDriverServlet extends HttpServlet {
+public class DeleteDriverServlet extends HttpServlet {
+
 	DriverService service = new DriverService();
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Driver driver = DriverAssembler.assembleDriverFrom(req);
-		service.update(driver);
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String answer = req.getParameter("answer");
+		if (answer.equals("SI")) {
+			String idDriver = req.getParameter("id");
+			service.deleteDriver(Integer.parseInt(idDriver));
+		}
 		redirect(req, resp);
 	}
 
