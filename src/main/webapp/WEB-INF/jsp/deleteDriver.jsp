@@ -11,9 +11,7 @@
 		<div>¿Está seguro de que desea borrar el piloto?</div>
 		<input type="submit" name="answer" value="SI" />
 		<input type="submit" name="answer" value="NO" />
-		<!-- 
-		<a href="listado.jsp">NO</a>
-		 -->
+		
 		<input type="hidden" name="id" value="${id}" />
 
 	</form>

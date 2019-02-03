@@ -22,8 +22,8 @@
 				<option value="${team.idTeam}">${team.name}</option>
 			</c:forEach>
 		</select> <br /> 
-		<span>Fecha de nacimiento:</span><input type="date"
-			name="birthDate"> <br /> <span>Nacionalidad: </span> 
+	<!-- 	<span>Fecha de nacimiento:</span><input type="date"
+			name="birthDate"> <br />  --><span>Nacionalidad: </span> 
 			<select
 			name="nationality">
 			<c:forEach var="nation" items="${nations}">

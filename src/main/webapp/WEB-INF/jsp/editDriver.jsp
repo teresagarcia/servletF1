@@ -10,15 +10,6 @@
 <title>Editar piloto</title>
 </head>
 <body>
-	<%
-		NationalityService nationService = new NationalityService();
-		List<Nationality> nations = (List<Nationality>) nationService.listAllNations();
-		pageContext.setAttribute("nations", nations);
-		TeamService teamService = new TeamService();
-		List<Team> teams = (List<Team>) teamService.listAllTeams();
-		pageContext.setAttribute("teams", teams);
-		request.getAttribute("driver");
-	%>
 	<h1>Actualizar información del piloto</h1>
 	<form action="/goToUpdateDriver" method="post">
 		<input type="hidden" name="id" value="<c:out value="${driver.id}"/>"/>

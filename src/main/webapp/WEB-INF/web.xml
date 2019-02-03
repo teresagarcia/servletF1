@@ -7,7 +7,6 @@
 	<display-name>Formula 1 WebApp</display-name>
 	<description></description>
 
-
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring-context.xml</param-value>

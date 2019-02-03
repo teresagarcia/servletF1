@@ -1,10 +1,5 @@
 package es.salesianos.model;
 
-import java.util.Calendar;
-import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
@@ -15,7 +10,7 @@ public class Driver {
 	private int team;
 	private static final int DEFAULT_TEAM = -1;
 	private static final int DEFAULT_NATION = -1;
-	private LocalDate birthDate;
+	private LocalDate birthDate = LocalDate.of(1900, 1, 1);
 	private int nationality;
 
 	public int getId() {
@@ -67,7 +62,6 @@ public class Driver {
 				this.birthDate = LocalDate.parse(birthDate);
 		} catch (DateTimeParseException e) {
 			this.birthDate = LocalDate.of(1900, 1, 1);
-			// throw new RuntimeException(e);
 		}
 	}
 
